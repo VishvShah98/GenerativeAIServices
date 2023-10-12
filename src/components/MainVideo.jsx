@@ -1,17 +1,18 @@
-import { useState } from 'react';
+import { useState } from "react";
+import videoState from "../state";
 import main_video from "../assets/videos/video2ai.mp4";
 
 function MainVideo() {
-  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
-
   return (
-    <div className="relative" style={{ display: isVideoLoaded ? 'block' : 'none' }}>
+    <div className="relative">
       <video
         className="w-full h-full rounded-3xl border border-[#454247]"
         autoPlay
         loop
         muted
-        onLoadedData={() => setIsVideoLoaded(true)}  // Set the state to true when video is loaded
+        onLoadedData={() => {
+          videoState.isVideoLoaded = true;
+        }}
       >
         <source src={main_video} type="video/mp4" />
       </video>
