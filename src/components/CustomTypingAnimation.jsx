@@ -27,7 +27,7 @@ function CustomTypingAnimation({ text }) {
   return (
     <div className="inline-block backdrop-blur-md backdrop-filter w-max font-base text-[#00FFE3] text-xs md:text-md lg:text-2xl tracking-wide border-2 border-solid border-[#00FFE3] rounded-full py-2 px-2 md:py-3 md:px-7 lg:py-8 lg:px-8">
       {displayText}
-      <span className="animate-blink">_ &nbsp; &nbsp; &nbsp; &nbsp;</span>
+      <span className="animate-blink">_ &nbsp; &nbsp;</span>
     </div>
   );
 }
