@@ -1,4 +1,4 @@
-import CompaniesLoop from "../components/companiesLoop";
+import CompaniesLoop from "../components/CompaniesLoop";
 import ImageCarousel from "../components/ImageCarousel";
 function ImageGenerator() {
   return (
