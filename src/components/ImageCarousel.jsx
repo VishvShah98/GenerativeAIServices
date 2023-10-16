@@ -66,7 +66,7 @@ function ImageCarousel() {
     <div className="flex items-center">
       <div className="relative w-[80%]">
         {/* AnimatePresence to enable enter/exit animations */}
-        <AnimatePresence initial={false} custom={direction} mode="wait">
+        <AnimatePresence initial={false} custom={direction} mode="popLayout">
           {/* The key prop is crucial here to make sure the components are distinct */}
           <motion.img
             key={currentIndex}

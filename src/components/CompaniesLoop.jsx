@@ -53,7 +53,7 @@ function CompaniesLoop() {
       <div className=" text-[#8B898C] text-lg md:text-3xl lg:text-2xl">
         Trusted by
       </div>
-      <div className="flex pb-24 lg:pb-56">
+      <div className="flex">
         {numberOfLogos().map((logo, index) => (
           <motion.div
             initial={{ x: window.innerWidth }}
