@@ -48,17 +48,17 @@ function ImageCarousel() {
     enter: {
       opacity: 0,
       x: direction === 1 ? "-100%" : "100%", // Enter from the right or left side based on direction
-      transition: { ease: "easeInOut" },
+      transition: { ease: "easeInOut", duration: 0.25 },
     },
     center: {
       opacity: 1,
       x: 0,
-      transition: { ease: "easeInOut" },
+      transition: { ease: "easeInOut", duration: 0.25 },
     },
     exit: {
       opacity: 0,
       x: direction === 1 ? "100%" : "-100%", // Exit to the left or right side based on direction
-      transition: { ease: "easeInOut" },
+      transition: { ease: "easeInOut", duration: 0.25 },
     },
   };
 

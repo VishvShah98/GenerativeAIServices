@@ -36,7 +36,7 @@ const hexagonVariants = {
 
 function Discover() {
   return (
-    <div className="bg-center-radial">
+    <div className="bg-center-radial pb-24">
       <div className="flex justify-between">
         <div></div>
         <motion.div
