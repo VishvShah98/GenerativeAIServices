@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ArrowButton from "./Buttons/ArrowButton";
 import monkey from "../assets/images/monkey.jpg";
@@ -16,6 +16,18 @@ const text = [
 function ImageCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(1); // 1 for next, -1 for previous
+
+  const preloadImages = async () => {
+    for (const imageUrl of images) {
+      const img = new Image();
+      img.src = imageUrl;
+      await img.decode(); // Wait for the image to be fully loaded
+    }
+  };
+
+  useEffect(() => {
+    preloadImages();
+  }, []);
 
   const goToPreviousImage = () => {
     // setDirection(-1); // Set direction to -1 for "previous"
@@ -36,17 +48,17 @@ function ImageCarousel() {
     enter: {
       opacity: 0,
       x: direction === 1 ? "-100%" : "100%", // Enter from the right or left side based on direction
-      transition: { type: "spring", stiffness: 100, ease: "easeInOut" },
+      transition: { ease: "easeInOut" },
     },
     center: {
       opacity: 1,
       x: 0,
-      transition: { type: "spring", stiffness: 100, ease: "easeInOut" },
+      transition: { ease: "easeInOut" },
     },
     exit: {
       opacity: 0,
       x: direction === 1 ? "100%" : "-100%", // Exit to the left or right side based on direction
-      transition: { type: "spring", stiffness: 100, ease: "easeInOut" },
+      transition: { ease: "easeInOut" },
     },
   };
 
@@ -60,7 +72,7 @@ function ImageCarousel() {
             key={currentIndex}
             src={images[currentIndex]}
             alt={images[currentIndex]}
-            className="rounded-3xl w-full z-10"
+            className="rounded-3xl w-full z-10 "
             variants={imageVariants} // adding the variants here
             initial="enter" // initial state defined in variants
             animate="center" // animate to center state
@@ -72,7 +84,7 @@ function ImageCarousel() {
           <CustomTypingAnimation text={text[currentIndex]} />
         </div>
       </div>
-      <div className="flex flex-col items-center  w-[20%] space-y-2 lg:space-y-4 p-6 lg:p-14">
+      <div className="flex flex-col items-center  w-[20%] space-y-2 lg:space-y-4 p-6 lg:p-14 z-20">
         <div>
           <ArrowButton
             type="left"
@@ -87,7 +99,7 @@ function ImageCarousel() {
             type="right"
             onClick={async () => {
               await setDirection(1); // First function
-              goToPreviousImage(); // Second function
+              goToNextImage(); // Second function
             }}
           />
         </div>
