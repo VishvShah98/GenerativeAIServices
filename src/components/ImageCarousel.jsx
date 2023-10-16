@@ -28,32 +28,6 @@ function ImageCarousel() {
     });
   };
 
-  const preloadImages = async () => {
-    for (const imageUrl of images) {
-      const img = new Image();
-      img.src = imageUrl;
-      await img.decode(); // Wait for the image to be fully loaded
-    }
-  };
-
-  useEffect(() => {
-    preloadImages();
-  }, []);
-
-  // const goToPreviousImage = () => {
-  //   // setDirection(-1); // Set direction to -1 for "previous"
-  //   setCurrentIndex((prevIndex) =>
-  //     prevIndex === 0 ? images.length - 1 : prevIndex - 1
-  //   );
-  // };
-
-  // const goToNextImage = () => {
-  //   // setDirection(1); // Set direction to 1 for "next"
-  //   setCurrentIndex((prevIndex) =>
-  //     prevIndex === images.length - 1 ? 0 : prevIndex + 1
-  //   );
-  // };
-
   const goToPreviousImage = () => {
     const prevIndex = currentIndex === 0 ? images.length - 1 : currentIndex - 1;
     if (loadedImages[prevIndex]) {
@@ -86,17 +60,17 @@ function ImageCarousel() {
     enter: {
       opacity: 0,
       x: direction === 1 ? "-100%" : "100%", // Enter from the right or left side based on direction
-      transition: { ease: "easeInOut", duration: 0.25 },
+      transition: { ease: "easeInOut", duration: 0.5 },
     },
     center: {
       opacity: 1,
       x: 0,
-      transition: { ease: "easeInOut", duration: 0.25 },
+      transition: { ease: "easeInOut", duration: 0.5 },
     },
     exit: {
       opacity: 0,
       x: direction === 1 ? "100%" : "-100%", // Exit to the left or right side based on direction
-      transition: { ease: "easeInOut", duration: 0.25 },
+      transition: { ease: "easeInOut", duration: 0.5 },
     },
   };
 
@@ -104,22 +78,23 @@ function ImageCarousel() {
     <div className="flex items-center">
       <div className="relative w-[80%]">
         {/* AnimatePresence to enable enter/exit animations */}
-        <AnimatePresence initial={false} custom={direction} mode="popLayout">
-          {/* The key prop is crucial here to make sure the components are distinct */}
-          {loadedImages[currentIndex] && (
+        {loadedImages[currentIndex] && (
+          <AnimatePresence initial={false} custom={direction} mode="popLayout">
+            {/* The key prop is crucial here to make sure the components are distinct */}
+
             <motion.img
               key={currentIndex}
               src={images[currentIndex]}
               alt={images[currentIndex]}
-              className="rounded-3xl w-full z-10 "
+              className="rounded-3xl aspect-[1.329] w-full h-[300px] md:h-[450px] w-full lg:w-full lg:h-[806px] z-10 "
               variants={imageVariants} // adding the variants here
               initial="enter" // initial state defined in variants
               animate="center" // animate to center state
               exit="exit" // exit state
               custom={direction}
             />
-          )}
-        </AnimatePresence>
+          </AnimatePresence>
+        )}
         <div className="absolute bottom-0 left-[50%] transform translate-x-[-50%] mb-[15%] ml-[10%] lg:ml-0 lg:mb-[30%]">
           <CustomTypingAnimation text={text[currentIndex]} />
         </div>
