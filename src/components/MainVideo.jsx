@@ -1,4 +1,3 @@
-import { useState } from "react";
 import videoState from "../state";
 import main_video from "../assets/videos/video2ai.mp4";
 

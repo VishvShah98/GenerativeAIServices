@@ -13,7 +13,7 @@ function Navbar() {
     <div className="absolute top-0 left-1/2 transform -translate-x-1/2 px-4 py-4 md:px-14 md:py-10 lg:px-52 lg:py-12 z-[99]">
       {!isOpen && (
         <button
-          className="text-4xl md:text-5xl lg:text-6xl"
+          className="text-4xl md:text-5xl lg:text-6xl text-white"
           onClick={handleToggle}
         >
           <VscListFilter />
@@ -24,12 +24,12 @@ function Navbar() {
        //make the div animate from the top
             initial={{ y: "-100%" }}
             animate={{ y: -32 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.5 }}
 
           className="backdrop-blur-md backdrop-filter bg-black bg-opacity-30 border-[#454247] border rounded-lg  px-12 py-8  w-[100vw] md:w-full"
         >
-          <button
-            className="text-4xl md:text-5xl lg:text-6xl"
+          <button 
+            className="text-4xl md:text-5xl lg:text-6xl text-white"
             onClick={handleToggle}
           >
             <RxCross1 />

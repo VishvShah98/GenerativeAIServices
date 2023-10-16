@@ -1,17 +1,17 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       // Custom background gradients
       backgroundImage: {
-        'center-radial': 'radial-gradient(circle, #4A3845, black)',
-        'top-radial': 'radial-gradient(circle at top, #4A3845, black)',
+        "center-radial": "radial-gradient(ellipse, #4A3845, black )",
+        "top-radial": "radial-gradient(ellipse at top, #4A3845, black)",
+      },
+      screens: {
+        lg: { min: "1300px" }, // Define your custom breakpoint for Nest Hub
       },
     },
   },
   plugins: [],
-}
+};
