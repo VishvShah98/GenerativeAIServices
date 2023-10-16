@@ -15,7 +15,18 @@ const text = [
 
 function ImageCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [loadedImages, setLoadedImages] = useState(
+    new Array(images.length).fill(false)
+  );
   const [direction, setDirection] = useState(1); // 1 for next, -1 for previous
+
+  const handleImageLoad = (index) => {
+    setLoadedImages((prevLoaded) => {
+      const newLoaded = [...prevLoaded];
+      newLoaded[index] = true;
+      return newLoaded;
+    });
+  };
 
   const preloadImages = async () => {
     for (const imageUrl of images) {
@@ -29,19 +40,46 @@ function ImageCarousel() {
     preloadImages();
   }, []);
 
+  // const goToPreviousImage = () => {
+  //   // setDirection(-1); // Set direction to -1 for "previous"
+  //   setCurrentIndex((prevIndex) =>
+  //     prevIndex === 0 ? images.length - 1 : prevIndex - 1
+  //   );
+  // };
+
+  // const goToNextImage = () => {
+  //   // setDirection(1); // Set direction to 1 for "next"
+  //   setCurrentIndex((prevIndex) =>
+  //     prevIndex === images.length - 1 ? 0 : prevIndex + 1
+  //   );
+  // };
+
   const goToPreviousImage = () => {
-    // setDirection(-1); // Set direction to -1 for "previous"
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
-    );
+    const prevIndex = currentIndex === 0 ? images.length - 1 : currentIndex - 1;
+    if (loadedImages[prevIndex]) {
+      setDirection(-1);
+      setCurrentIndex(prevIndex);
+    }
+    // else do nothing, wait for image to load
   };
 
   const goToNextImage = () => {
-    // setDirection(1); // Set direction to 1 for "next"
-    setCurrentIndex((prevIndex) =>
-      prevIndex === images.length - 1 ? 0 : prevIndex + 1
-    );
+    const nextIndex = currentIndex === images.length - 1 ? 0 : currentIndex + 1;
+    if (loadedImages[nextIndex]) {
+      setDirection(1);
+      setCurrentIndex(nextIndex);
+    }
+    // else do nothing, wait for image to load
   };
+
+  useEffect(() => {
+    // Preload images
+    images.forEach((imgSrc, index) => {
+      const img = new Image();
+      img.src = imgSrc;
+      img.onload = () => handleImageLoad(index);
+    });
+  }, []);
 
   // Variants for image animation
   const imageVariants = {
@@ -68,17 +106,19 @@ function ImageCarousel() {
         {/* AnimatePresence to enable enter/exit animations */}
         <AnimatePresence initial={false} custom={direction} mode="popLayout">
           {/* The key prop is crucial here to make sure the components are distinct */}
-          <motion.img
-            key={currentIndex}
-            src={images[currentIndex]}
-            alt={images[currentIndex]}
-            className="rounded-3xl w-full z-10 "
-            variants={imageVariants} // adding the variants here
-            initial="enter" // initial state defined in variants
-            animate="center" // animate to center state
-            exit="exit" // exit state
-            custom={direction}
-          />
+          {loadedImages[currentIndex] && (
+            <motion.img
+              key={currentIndex}
+              src={images[currentIndex]}
+              alt={images[currentIndex]}
+              className="rounded-3xl w-full z-10 "
+              variants={imageVariants} // adding the variants here
+              initial="enter" // initial state defined in variants
+              animate="center" // animate to center state
+              exit="exit" // exit state
+              custom={direction}
+            />
+          )}
         </AnimatePresence>
         <div className="absolute bottom-0 left-[50%] transform translate-x-[-50%] mb-[15%] ml-[10%] lg:ml-0 lg:mb-[30%]">
           <CustomTypingAnimation text={text[currentIndex]} />
