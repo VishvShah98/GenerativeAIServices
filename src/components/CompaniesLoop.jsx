@@ -50,10 +50,10 @@ const numberOfLogos = () => {
 function CompaniesLoop() {
   return (
     <>
-      <div className=" text-[#8B898C] text-lg md:text-3xl lg:text-2xl">
+      <div className=" text-[#8B898C] font-semibold text-lg md:text-3xl lg:text-2xl">
         Trusted by
       </div>
-      <div className="flex">
+      <div className="flex pt-2 md:pt-4 pb-24 md:pb-40">
         {numberOfLogos().map((logo, index) => (
           <motion.div
             initial={{ x: window.innerWidth }}

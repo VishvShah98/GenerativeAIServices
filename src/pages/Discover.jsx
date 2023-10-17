@@ -52,7 +52,7 @@ function Discover() {
         </motion.div>
       </div>
       <div className="z-10 relative flex items-center justify-center px-4 md:px-14 lg:px-28">
-        <div className="w-full h-full backdrop-blur-md backdrop-filter bg-opacity-30 rounded-3xl border border-[#454247] text-white text-3xl p-6 md:text-6xl md:p-24  lg:text-9xl lg:p-20">
+        <div className="w-full h-full backdrop-blur-md backdrop-filter bg-white bg-opacity-5 rounded-3xl border border-[#454247] text-white text-3xl p-6 md:text-6xl md:p-24  lg:text-9xl lg:p-20">
           Discover a World of
           <span className="text-[#00FFE3]"> Limitless Artistic Potential</span>
         </div>

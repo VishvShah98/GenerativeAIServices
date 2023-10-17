@@ -99,7 +99,7 @@ function ImageCarousel() {
           <CustomTypingAnimation text={text[currentIndex]} />
         </div>
       </div>
-      <div className="flex flex-col items-center  w-[20%] space-y-2 lg:space-y-4 p-6 lg:p-14 z-20">
+      <div className="flex flex-col items-center  w-[20%] space-y-2 lg:space-y-4 p-10 lg:p-14 z-20">
         <div>
           <ArrowButton
             type="left"
