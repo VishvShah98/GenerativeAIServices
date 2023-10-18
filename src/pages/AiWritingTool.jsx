@@ -1,9 +1,9 @@
 import React from "react";
 import WritingToolBox from "../components/WritingToolBox";
 import TryItYourselfButton from "../components/Buttons/TryItYourselfButton";
-import {motion} from "framer-motion";
-import cylinder from '../assets/images/cylinder.webp'
-import pyramid from '../assets/images/pyramid_top.webp'
+import { motion } from "framer-motion";
+import cylinder from "../assets/images/cylinder.webp";
+import pyramid from "../assets/images/pyramid_top.webp";
 
 const titles = [
   "Website Copy",
@@ -50,15 +50,29 @@ function AiWritingTool() {
         </div>
       </div>
       <motion.div
-      initial={{y:0, x:0}}
-      animate={{y: [0, 100, 0], x: [0, 100, 0] }}
-      transition={{duration: 20, repeat: Infinity, ease: "linear"}}
-      className="absolute top-24 md:top-36 left-0 z-0"><img className="z-0 w-1/2 md:2/3 lg:w-full" src={cylinder} alt='cylinder image' /></motion.div>
-       <motion.div
-      initial={{y:0, x:0}}
-      animate={{y: [0, 100, 0], x: [0, -100, 0] }}
-      transition={{duration: 20, repeat: Infinity, ease: "linear"}}
-      className="absolute -right-1/2 top-1/2 md:-right-10 md:top-1/2 z-0"><img className="z-0 w-1/2 md:w-1/2 lg:w-full" src={pyramid} alt='pyramid image' /></motion.div>
+        initial={{ y: 0, x: 0 }}
+        animate={{ y: [0, 100, 0], x: [0, 100, 0] }}
+        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+        className="absolute top-24 md:top-36 left-0 z-0"
+      >
+        <img
+          className="z-0 w-1/2 md:2/3 lg:w-full"
+          src={cylinder}
+          alt="cylinder image"
+        />
+      </motion.div>
+      <motion.div
+        initial={{ y: 0, x: 0 }}
+        animate={{ y: [0, 100, 0], x: [0, -100, 0] }}
+        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+        className="absolute -right-1/2 top-1/2 md:-right-10 md:top-1/2 z-0"
+      >
+        <img
+          className="z-0 w-1/2 md:w-1/2 lg:w-full"
+          src={pyramid}
+          alt="pyramid image"
+        />
+      </motion.div>
     </div>
   );
 }

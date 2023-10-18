@@ -28,22 +28,37 @@ function ImageCarousel() {
     });
   };
 
+  // New state variable for tracking animation status
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  // ... (other existing code)
+
+  const handleAnimationStart = () => {
+    setIsAnimating(true); // Set animation state to true when animation starts
+  };
+
+  const handleAnimationComplete = () => {
+    setIsAnimating(false); // Set animation state back to false when animation completes
+  };
+
   const goToPreviousImage = () => {
-    const prevIndex = currentIndex === 0 ? images.length - 1 : currentIndex - 1;
-    if (loadedImages[prevIndex]) {
+    if (!isAnimating && loadedImages[currentIndex]) {
+      // Check if animation is not in progress
       setDirection(-1);
-      setCurrentIndex(prevIndex);
+      setCurrentIndex((prevIndex) =>
+        prevIndex === 0 ? images.length - 1 : prevIndex - 1
+      );
     }
-    // else do nothing, wait for image to load
   };
 
   const goToNextImage = () => {
-    const nextIndex = currentIndex === images.length - 1 ? 0 : currentIndex + 1;
-    if (loadedImages[nextIndex]) {
+    if (!isAnimating && loadedImages[currentIndex]) {
+      // Check if animation is not in progress
       setDirection(1);
-      setCurrentIndex(nextIndex);
+      setCurrentIndex((prevIndex) =>
+        prevIndex === images.length - 1 ? 0 : prevIndex + 1
+      );
     }
-    // else do nothing, wait for image to load
   };
 
   useEffect(() => {
@@ -79,7 +94,15 @@ function ImageCarousel() {
       <div className="relative w-[80%]">
         {/* AnimatePresence to enable enter/exit animations */}
         {loadedImages[currentIndex] && (
-          <AnimatePresence initial={false} custom={direction} mode="popLayout">
+          <AnimatePresence
+            initial={false}
+            custom={direction}
+            mode="popLayout"
+            onExitComplete={handleAnimationComplete}
+            onEnterComplete={handleAnimationComplete}
+            onExitStart={handleAnimationStart}
+            onEnterStart={handleAnimationStart}
+          >
             {/* The key prop is crucial here to make sure the components are distinct */}
 
             <motion.img
@@ -101,22 +124,28 @@ function ImageCarousel() {
       </div>
       <div className="flex flex-col items-center  w-[20%] space-y-2 lg:space-y-4 p-10 lg:p-14 z-20">
         <div>
-          <ArrowButton
-            type="left"
-            onClick={async () => {
-              await setDirection(-1); // First function
-              goToPreviousImage(); // Second function
-            }}
-          />
+          <button disabled={isAnimating}>
+            <ArrowButton
+              type="left"
+              onClick={async () => {
+                await setIsAnimating(true);
+                await setDirection(-1); // First function
+                goToPreviousImage(); // Second function
+              }}
+            />
+          </button>
         </div>
         <div>
-          <ArrowButton
-            type="right"
-            onClick={async () => {
-              await setDirection(1); // First function
-              goToNextImage(); // Second function
-            }}
-          />
+          <button disabled={isAnimating}>
+            <ArrowButton
+              type="right"
+              onClick={async () => {
+                await setIsAnimating(true);
+                await setDirection(1); // First function
+                goToNextImage(); // Second function
+              }}
+            />
+          </button>
         </div>
       </div>
     </div>

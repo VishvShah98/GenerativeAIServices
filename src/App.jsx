@@ -2,6 +2,7 @@ import Homepage from "./pages/Homepage";
 import Discover from "./pages/Discover";
 import ImageGenerator from "./pages/ImageGenerator";
 import AiWritingTool from "./pages/AiWritingTool";
+import Features from "./pages/Features";
 
 import { useSnapshot } from "valtio";
 import videoState from "./state";
@@ -15,6 +16,7 @@ function App() {
       <Discover />
       <ImageGenerator />
       <AiWritingTool />
+      <Features />
     </div>
   );
 }
