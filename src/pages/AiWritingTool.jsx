@@ -20,7 +20,7 @@ const descriptions = [
 
 function AiWritingTool() {
   return (
-    <div className="bg-center-radial relative overflow-hidden">
+    <div className="relative overflow-hidden">
       <div className="text-center">
         <div className="relative text-[#8B898C] text-lg md:text-xl lg:text-2xl font-semibold mb-2 pt-10 z-20">
           AI Writing Tool

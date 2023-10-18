@@ -99,7 +99,7 @@ function Features() {
   };
 
   return (
-    <div className="relative h-screen md:flex text-white overflow-hidden pt-10 md:pt-0 bg-black">
+    <div className="relative h-screen md:flex text-white overflow-hidden pt-10 md:pt-0">
       {/* BACKGROUND IMAGE */}
       <AnimatePresence
         initial={false}

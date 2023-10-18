@@ -14,9 +14,11 @@ function App() {
     <div style={{ display: snapshot.isVideoLoaded ? "block" : "none" }}>
       <Homepage />
       <Discover />
-      <ImageGenerator />
-      <AiWritingTool />
-      <Features />
+      <div className="bg-center-radial">
+        <ImageGenerator />
+        <AiWritingTool />
+        <Features />
+      </div>
     </div>
   );
 }
