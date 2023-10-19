@@ -3,6 +3,9 @@ import Discover from "./pages/Discover";
 import ImageGenerator from "./pages/ImageGenerator";
 import AiWritingTool from "./pages/AiWritingTool";
 import Features from "./pages/Features";
+import UseCases from "./pages/UseCases";
+import Examples from "./pages/Examples";
+import Testimonials from "./pages/Testimonials";
 
 import { useSnapshot } from "valtio";
 import videoState from "./state";
@@ -18,6 +21,11 @@ function App() {
         <ImageGenerator />
         <AiWritingTool />
         <Features />
+      </div>
+      <UseCases />
+      <div className="bg-center-radial">
+        <Examples />
+        <Testimonials />
       </div>
     </div>
   );

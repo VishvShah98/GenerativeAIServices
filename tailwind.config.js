@@ -5,8 +5,8 @@ export default {
     extend: {
       // Custom background gradients
       backgroundImage: {
-        "center-radial": "radial-gradient(ellipse, #4A3845, black )",
-        "top-radial": "radial-gradient(ellipse at top, #4A3845, black)",
+        "center-radial": "radial-gradient(ellipse, #4A3845, black 80%)",
+        "top-radial": "radial-gradient(ellipse at top, #4A3845, black 80%)",
       },
       screens: {
         lg: { min: "1300px" }, // Define your custom breakpoint for Nest Hub
