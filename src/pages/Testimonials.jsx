@@ -120,7 +120,7 @@ function Testimonials() {
           </button>
         </div>
 
-        <div className="flex-grow relative text-center flex justify-center items-center w-full h-[250px] md:h-[400px] h-[500px]">
+        <div className="flex-grow relative text-center flex justify-center items-center w-full h-[249px] md:h-[400px] h-[500px]">
           <AnimatePresence
             initial={false}
             custom={direction}
@@ -163,7 +163,7 @@ function Testimonials() {
         </div>
 
         {/* Arrows for smaller screens */}
-        <div className="flex md:hidden space-x-4 w-full justify-center">
+        <div className="flex md:hidden space-x-4 w-full justify-center pt-10 md:pt-0">
           <button
             className="focus:outline-none z-20"
             disabled={isAnimating}
