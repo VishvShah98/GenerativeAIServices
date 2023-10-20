@@ -36,9 +36,9 @@ const descriptions = [
 
 function UseCases() {
   return (
-    <div className="relative bg-center-radial pb-20 pt-20 overflow-hidden">
+    <div  className="relative bg-center-radial pt-20 pb-20 md:pt-40 md:pb-40 overflow-hidden">
       <div className="text-center pb-10 md:pb-20">
-        <div className="relative text-[#8B898C] text-lg md:text-2xl lg:text-3xl font-semibold mb-2 pt-10 z-20">
+        <div id="useCases" className="relative text-[#8B898C] text-lg md:text-2xl lg:text-3xl font-semibold mb-2 pt-10 z-20">
           Use Cases
         </div>
         <div className="relative text-3xl md:text-6xl lg:text-8xl text-white mb-10 md:mb-20 z-20">

@@ -55,14 +55,14 @@ function Examples() {
       x: "0%", // Slide in from the opposite direction
       opacity: 1,
       transition: {
-        duration: 1,
+        duration: 0.75,
       },
     },
     exit: {
       x: direction < 0 ? "100%" : "-100%", // Slide out to the left or right based on direction when exiting
       opacity: 1,
       transition: {
-        duration: 1,
+        duration: 0.75,
       },
     },
   };
@@ -95,9 +95,9 @@ function Examples() {
   };
 
   return (
-    <div className="overflow-hidden">
+    <div  className="overflow-hidden pt-20 pb-20 md:pt-40 md:pb-40">
       <div className=" px-8 md:px-14 lg:px-48 text-left pb-10 md:pb-20">
-        <div className="relative text-[#8B898C] text-lg md:text-2xl lg:text-3xl font-semibold mb-6 pt-10 z-20">
+        <div id="examples" className="relative text-[#8B898C] text-lg md:text-2xl lg:text-3xl font-semibold mb-6 pt-10 z-20">
           Elevate Your Content
         </div>
         <div className="relative text-3xl md:text-6xl lg:text-8xl text-white mb-10 md:mb-20 z-20">

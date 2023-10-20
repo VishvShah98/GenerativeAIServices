@@ -4,9 +4,17 @@ import GaisLogo from "../components/GaisLogo";
 import MainVideo from "../components/MainVideo";
 import { BiLogoFacebook, BiLogoInstagram } from "react-icons/bi";
 
+const handleNavigation = (e, sectionId) => {
+  e.preventDefault();
+  const sectionElement = document.getElementById(sectionId);
+  if (sectionElement) {
+    sectionElement.scrollIntoView({ behavior: "smooth" });
+  }
+};
+
 function Homepage() {
   return (
-    <div className="relative bg-top-radial ">
+    <div id="homepage" className="relative bg-top-radial ">
       <div className="flex text-white items-center px-4 py-4 md:px-14 md:py-10 lg:px-52 lg:py-12">
         <div className="flex-1">
           <GaisLogo />
@@ -31,7 +39,9 @@ function Homepage() {
           </a>
         </div>
         <div className="uppercase text-[#BAB9BA] hover:text-white transition duration-300 cursor-pointer text-sm md:text-lg lg:text-xl">
-          Scroll to learn more
+          <a href="#" onClick={(e) => handleNavigation(e, "discover")}>
+            Scroll to learn more
+          </a>
         </div>
       </div>
     </div>

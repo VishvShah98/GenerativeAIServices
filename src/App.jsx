@@ -6,6 +6,7 @@ import Features from "./pages/Features";
 import UseCases from "./pages/UseCases";
 import Examples from "./pages/Examples";
 import Testimonials from "./pages/Testimonials";
+import Footer from "./pages/Footer";
 
 import { useSnapshot } from "valtio";
 import videoState from "./state";
@@ -15,7 +16,7 @@ function App() {
 
   return (
     <div style={{ display: snapshot.isVideoLoaded ? "block" : "none" }}>
-      <Homepage />
+      <Homepage id="homepage" />
       <Discover />
       <div className="bg-center-radial">
         <ImageGenerator />
@@ -26,7 +27,9 @@ function App() {
       <div className="bg-center-radial">
         <Examples />
         <Testimonials />
+        <Footer />
       </div>
+     
     </div>
   );
 }
