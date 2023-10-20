@@ -128,7 +128,7 @@ function Features() {
         onExitStart={handleAnimationStart}
         onEnterStart={handleAnimationStart}
       >
-        <div className="relative h-1/2 md:h-full md:w-1/2 mb-[50%] lg:mb-[0%] pb-0 md:pb-[50%] lg:pb-0  px-8 md:px-14 lg:px-48 z-20 text-white space-y-6 md:space-y-12 flex flex-col justify-center z-10">
+        <div className="relative h-1/2 md:h-full md:w-1/2 mb-[20%] lg:mb-[0%] pb-0 md:pb-[20%] lg:pb-0  px-8 md:px-14 lg:px-48 z-20 text-white space-y-6 md:space-y-12 flex flex-col justify-center z-10">
           <motion.div
             key={options[index]}
             variants={containerVariants}
@@ -173,7 +173,7 @@ function Features() {
       </AnimatePresence>
 
       {/* MENU */}
-      <div className="mt-[0%] md:mt-[50%] lg:mt-[0%] md:w-1/2 px-8 md:px-0 flex justify-center items-center z-20">
+      <div className="mt-[0%] md:mt-[10%] lg:mt-[0%] md:w-1/2 px-8 md:px-0 flex justify-center items-center z-20">
         <div className="w-full md:w-fit h-full md:h-fit flex md:flex-col justify-center items-center rounded-md md:rounded-2xl backdrop-blur-2xl backdrop-filter bg-black bg-opacity-20 border border-[#454247] text-white text-lg md:text-3xl lg:text-2xl">
           {options.map((option, optionIndex) => (
             <button
