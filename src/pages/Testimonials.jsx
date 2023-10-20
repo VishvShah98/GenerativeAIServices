@@ -120,7 +120,7 @@ function Testimonials() {
           </button>
         </div>
 
-        <div className="flex-grow relative text-center flex justify-center items-center w-full h-[275px] md:h-[400px] h-[500px] ">
+        <div className="flex-grow relative text-center flex justify-center items-center w-full h-[250px] md:h-[400px] h-[500px] border border-red-500 ">
           <AnimatePresence
             initial={false}
             custom={direction}
